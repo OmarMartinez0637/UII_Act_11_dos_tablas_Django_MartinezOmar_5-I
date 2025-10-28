@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f7d9d9 0%, #f9f0d0 100%); /* Colores más cálidos/macdonalds */
+    color: #333;
+    line-height: 1.6;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    background: #FFC72C; /* Amarillo McDonald's */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #e0b028;
+}
+
+.main-header h1 a {
+    color: #DA291C; /* Rojo McDonald's */
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.main-nav a {
+    margin-left: 1.5rem;
+    color: #DA291C; /* Rojo McDonald's */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #f0f0f0;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Estilos para la cuadrícula de entidades (proveedores) */
+.entity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.entity-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.entity-card:hover {
+    transform: translateY(-5px);
+}
+
+.entity-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.entity-img, .entity-placeholder {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Usar 'contain' para logos */
+    background-color: #f8f8f8; /* Fondo suave para logos */
+}
+
+.entity-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #FFC72C; /* Amarillo McDonald's */
+}
+
+.entity-card h3 {
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: #2d3748;
+}
+
+.entity-detail {
+    color: #718096;
+    font-size: 0.9rem;
+    padding: 0 1rem 1rem;
+}
+
+/* Estilos para el detalle de la entidad (proveedor) */
+.entity-detail {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.entity-banner {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.detail-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Redondo para logos */
+    object-fit: contain;
+    border: 5px solid #FFC72C; /* Borde amarillo McDonald's */
+    background-color: #f8f8f8;
+}
+
+.detail-placeholder {
+    width: 180px;
+    height: 180px;
+    background: #fdf5e6; /* Un amarillo más suave */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #FFC72C; /* Amarillo McDonald's */
+}
+
+.entity-info h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+}
+
+.entity-info p {
+    margin-top: 0.5rem;
+    color: #4a5568;
+}
+
+
+.detail-actions {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Estilos para la sección de items relacionados (insumos) */
+.related-items-section {
+    margin-top: 2rem;
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+}
+
+.item-list li {
+    padding: 1rem;
+    background: #fff8e1; /* Un amarillo más suave para los ítems de insumo */
+    border-left: 5px solid #FFC72C; /* Borde amarillo */
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* ... (código anterior) ... */
+
+.item-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.item-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #FFC72C; /* Borde amarillo McDonald's */
+}
+
+.item-thumbnail-placeholder {
+    width: 60px;
+    height: 60px;
+    background: #faedcb; /* Amarillo muy claro */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #FFC72C;
+}
+
+.item-info strong {
+    color: #DA291C; /* Rojo McDonald's */
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.item-info p {
+    margin: 0.2rem 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.item-actions .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+
+/* Estilos de botones */
+.btn {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #DA291C; /* Rojo McDonald's */
+    color: white;
+}
+
+.btn-primary:hover { background: #b01a11; }
+
+.btn-secondary {
+    background: #718096; /* Gris neutro */
+    color: white;
+}
+
+.btn-secondary:hover { background: #4a5568; }
+
+.btn-danger {
+    background: #e53e3e; /* Rojo de peligro */
+    color: white;
+}
+
+.btn-danger:hover { background: #c53030; }
+
+.main-footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #DA291C; /* Rojo McDonald's */
+    color: white;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* Estilos de formularios */
+.form-styled {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-field {
+    margin-bottom: 1.5rem;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="tel"],
+.form-field input[type="date"], /* Para el campo de fecha */
+.form-field input[type="number"], /* Para cantidad */
+.form-field select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-field input[type="text"]:focus,
+.form-field input[type="email"]:focus,
+.form-field input[type="tel"]:focus,
+.form-field input[type="date"]:focus,
+.form-field input[type="number"]:focus,
+.form-field select:focus {
+    border-color: #FFC72C; /* Amarillo de McDonald's en focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 199, 44, 0.2);
+}
+
+.form-field input[type="file"] {
+    padding: 0.5rem 0;
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-top: 0.4rem;
+}
+
+.error-message {
+    font-size: 0.85rem;
+    color: #e53e3e;
+    margin-top: 0.4rem;
+    font-weight: 500;
+}
+
+.empty-message {
+    text-align: center;
+    color: #718096;
+    padding: 1rem;
+    background: #fdf5e6; /* Fondo amarillo muy claro */
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .entity-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .main-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .detail-actions {
+        justify-content: center;
+    }
+    .item-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .item-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+    .item-content {
+        width: 100%; /* Asegura que el contenido ocupe todo el ancho */
+        justify-content: center; /* Centra los elementos internos */
+    }
+}

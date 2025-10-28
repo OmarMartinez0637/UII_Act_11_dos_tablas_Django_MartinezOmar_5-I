@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block titulo %}Eliminar Proveedor | McDonald's Inventario{% endblock %}
+
+{% block contenido %}
+<h2>¿Estás seguro de que quieres borrar a "{{ proveedor.nombre }}"?</h2>
+<p>Esta acción eliminará este proveedor y **desvinculará** los insumos de inventario que suministra (no los borrará, pero su `id_proveedor` se establecerá en nulo). Esta acción no se puede deshacer.</p>
+<form method="post">
+    {% csrf_token %}
+    <div class="actions">
+        <button type="submit" class="btn btn-danger">Sí, Borrar</button>
+        <a href="{% url 'app_mcdonalds_inv:detalle_proveedor' proveedor.id_proveedor %}" class="btn">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

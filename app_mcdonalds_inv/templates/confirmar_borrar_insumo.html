@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block titulo %}Eliminar Insumo | McDonald's Inventario{% endblock %}
+
+{% block contenido %}
+<h2>¿Estás seguro de que quieres borrar el insumo "{{ insumo.nombre_insumo }}"?</h2>
+<p>Esta acción eliminará el registro del insumo del inventario y no se puede deshacer.</p>
+<form method="post">
+    {% csrf_token %}
+    <div class="actions">
+        <button type="submit" class="btn btn-danger">Sí, Borrar</button>
+        {% if insumo.id_proveedor %}
+            <a href="{% url 'app_mcdonalds_inv:detalle_proveedor' insumo.id_proveedor.id_proveedor %}" class="btn">Cancelar</a>
+        {% else %}
+            <a href="{% url 'app_mcdonalds_inv:listar_proveedores' %}" class="btn">Cancelar</a> {# Fallback si no hay proveedor asociado #}
+        {% endif %}
+    </div>
+</form>
+{% endblock %}

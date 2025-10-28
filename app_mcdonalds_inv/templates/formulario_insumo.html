@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block titulo %}{{ titulo }} | McDonald's Inventario{% endblock %}
+
+{% block contenido %}
+<h2>{{ titulo }}</h2>
+<form method="post" enctype="multipart/form-data" class="form-styled">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-field">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+                <p class="help-text">{{ field.help_text }}</p>
+            {% endif %}
+            {% for error in field.errors %}
+                <p class="error-message">{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <div class="actions">
+        <button type="submit" class="btn btn-primary">Guardar Insumo</button>
+        {% if form.instance.id_proveedor %}
+            <a href="{% url 'app_mcdonalds_inv:detalle_proveedor' form.instance.id_proveedor.id_proveedor %}" class="btn">Cancelar</a>
+        {% else %}
+            <a href="{% url 'app_mcdonalds_inv:listar_proveedores' %}" class="btn">Cancelar</a>
+        {% endif %}
+    </div>
+</form>
+{% endblock %}
